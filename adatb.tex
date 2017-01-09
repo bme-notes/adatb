@@ -1,0 +1,61 @@
+%%%% Beállítások, importok
+
+\input{includes/header.tex}
+
+\usepackage{relsize}
+
+\newcommand{\forceindent}{\leavevmode{\parindent=1em\indent}}
+\newcommand{\Gorog}[1]{\mathlarger{\mathlarger{\mathlarger{#1}}}}
+
+%%%%
+%%%%%%%
+%%%% Ezeket változtasd meg!
+
+\cim{Adatbázisok}
+\datum{2017. január 9.}
+\szerzo{Kormány Zsolt}
+\segitettek{Bognár Márton}
+
+%%%%
+%%%%%%%
+%%%% Fedlap
+
+\begin{document}
+\begin{titlepage}
+		\centering
+		\vspace{5cm}\par
+		\maketitle
+		\large A jegyzet és annak forrása megtalálható a \texttt{bme-notes.github.io} weboldalon.
+		\vfill
+		Közreműködtek: \the\segitettek
+		\normalsize
+		% Bottom of the page
+\end{titlepage}
+
+%%%%
+%%%%%%%
+%%%% Tartalomjegyzés + előszó
+
+\noindent \textbf{Kellemes vizsgázást!}
+
+\tableofcontents{}
+
+\section{Előszó}
+Lórem ipszum
+
+%%%%
+%%%%%%%
+%%%% Tényleges content
+%%%% A fejezeteket a fejezetek/$NEV.tex elérési útvonalon keresi
+%% Első "fejezet"
+\ujfejezet{tetelek-bizonyitasok}
+%% Második "fejezet"
+\ujfejezet{osszefoglalo}
+\ujfejezet{relacios-tervezes}
+\ujfejezet{tranzakciokezeles}
+\ujfejezet{fizikai-adatszervezes}
+\ujfejezet{elosztott-adatbazisok}
+\ujfejezet{gyakorlat-gondolkodtato}
+\ujfejezet{definiciok}
+
+\end{document}

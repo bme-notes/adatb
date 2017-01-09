@@ -1,0 +1,46 @@
+
+\section{Fizikai Adatszervezés}
+
+	\begin{enumerate}
+		\item Heap szervezés
+			\begin{itemize}
+				\item Lineáris keresés : $\dfrac{b_r + 1}{2}$
+			\end{itemize}
+
+		\item \textbf{Vödrös Hash}
+			\begin{itemize}
+				\item NINCSENEK KULCSOK TÁROLVA
+				\item Vödrökön belül lineáris keresés
+			\end{itemize}
+
+		\item \textbf{Indexelt állományok}
+
+			\begin{itemize}
+				\item	Támogatja a \textbf{több kulcs} szerinti keresést - Ez esetben több index állomány
+
+				\item Index állományt mindig rendezve tartjuk
+
+				\begin{enumerate}
+					\item \textbf{Sűrű index}
+
+							Mutató minden egyes adatrekordra.
+
+							Keresés $log_2(b_r)$ - $b_r$ = indexállományblokkok száma
+
+							\forceindent •\textbf{B* fa} $\Longrightarrow$ $log_k(b_r)$ el arányos keresési idő, ahol k a szintek száma
+
+
+					\item \textbf{Ritka index}
+
+							\begin{itemize}
+								\item - Plusz helyigény
+								\item - Egyel több lapelérés
+								\item - Több adminisztrációval jár a karbantartása
+								\item + Az adatállományt nem kell rendezetten tartani
+								\item + Meggyorsítja a rekordelérést, mert a ritka index mérete jóval kissebb is lehet, mint egy sűrű index
+								\item Támogatja a több kulcs szerinti keresést
+								\item Az adatállomány rekordjai szabaddá tehetők ,ha minden további hivatkozás a sűrű indexen keresztül történik
+							\end{itemize}
+				\end{enumerate}
+			\end{itemize}
+	\end{enumerate}

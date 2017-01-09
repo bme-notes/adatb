@@ -1,0 +1,140 @@
+\section{Tranzakció kezelés}
+
+\textbf{ACID} %TODO
+
+atomicity - tranzakció lefutása úgy hogy minden lefut belőle
+
+konzisztencia - az adatbázisba csak a sikeresen lefutott tranzakciók vannak
+
+Def: Soros ütemezés $\Rightarrow$ izolált tranzakció
+
+DE izolált $\nRightarrow$ Soros \\[2pt]
+
+
+\textbf{Átlapolódásból} adodó problémák:
+ \begin{enumerate} \setlength\itemsep{-0.5mm}
+ 	\item Dirty read
+ 	\item Phantom read
+ 	\item Lost update
+ 	\item Non-repetable read
+ \end{enumerate}
+\textcolor{red}{ A \textbf{sorosítással} ezek a problémák elkerülhetők.}\\[2pt]
+
+
+Problémák a zárakkal - Deadlock megoldási lehetőségek \\[2pt]
+
+%TODO MI az a tuple?, b* fa
+
+\begin{definicio}{Lavina}
+	Több piszkos adat olvasása, mely lavina szerűen terjed\\[-3pt]
+\end{definicio}
+
+\begin{definicio}{Agresszív protokoll}
+Optimista konkurenciakezelés. Egy protokoll agresszív, ha megpróbál olyan gyorsan lefutni, amennyire csak lehetséges, nem törődve azzal, hogy ez esetleg aborthoz is vezethet. ( Keveset foglalkozik a zárakkal)
+
+PL: Zárakat szigorúan olvasás/írás előtt kéri.\\[-3pt]
+\end{definicio}
+
+\begin{definicio}{Konzervatív protokoll}
+Pesszimista konkurencia kezelés. Egy protokoll konzervatív, ha megkísérli elekrülni az olyan tranzakciók futását amelyek nem biztos, hogy eredményesek lesznek (Sokat foglalkozik a zárakkal)
+
+PL:\\[-21pt]
+
+\begin{enumerate} \setlength\itemsep{0mm}
+	\item Szigorú 2PL (Lavina mentes és sorosítható)
+	\item Az összes zárat előre kéri, és csak akkor indul, ha már az összeset megkapta (Patmentes )
+	\item csak akkor kap meg egy zárat, ha az előtte senkinek nem kell az adatelemhez tartozó várakozó sorban. ( Éhezésmentes )
+\end{enumerate}
+
+\end{definicio}
+
+\textbf{Ellenőrzési pontok (checkpoint) }\setlength\itemsep{0.5mm}
+
+\begin{enumerate}
+	\item Ideiglenesen megtiltjuk új tranzakció indítását, és megvárjuk, amíg minden tranzakció befejeződik vagy abortál.
+	\item Megkeressük azokat a memóriablokkokat, amelyek módosultak, de még nem kerültek a háttértárba kiírásra,
+	\item Ezeket a blokkokat visszaírjuk a háttértárra.
+	\item Ellenőrzési pont (checkpoint) naplóba
+	\item naplót kiírjuk a háttértárra
+\end{enumerate}
+
+\textbf{Médiahibák elleni védekezés}
+
+\begin{itemize}
+	\item Rendszeres mentések (backup).
+	\item Az adatbázis fájlok duplikálása lehetőleg egy másik fizikai eszközön, néha más földrajzi helyen (\textit{elosztott adatbázisok})
+\end{itemize}
+
+\textbf{Fa protokoll} - pl B* fa
+
+\textbf{Figyelmeztető protokoll} - pl: Egy egész tábla lockolása relációs adatbázisba
+
+\subsection{Időbélyeges tranzakciókezelés}
+
+	Sorosíthatóság biztosításának egy másik módja.Akkor praktikus, ha a tranzakciók között kevés a potenciális sorosítási konfliktus.
+
+	Mindig \textbf{Deadlock mentesek}
+
+	\begin{center}
+		\begin{tabular}{|l||c|c|}
+ 			 \hline
+ 			 & T olvasni akar & T írni akar\\ \hline \hline
+ 			 t(T) $>$ R(A) & \checkmark & \checkmark \\
+ 			 t(T) $>$ W(A) & R(A) := t(T) & W(A) := t(T) \\ \hline
+
+ 			 t(T) $>$ R(A) & $\times$ & $\times$ abort T \\
+ 			 t(T) $<$ W(A) & & \textcolor{green}{Thomas} szabály: T mehet \\ \hline
+
+ 			 t(T) $<$ R(A) & \checkmark & $\times$ \\
+ 			 t(T) $>$ W(A) & & \\ \hline
+
+ 			 t(T) $<$ R(A) & $\times$ & $\times$ \\
+ 			 t(T) $<$ W(A) & & \\ \hline
+ 		\end{tabular}
+
+ 		\small Thomas szabály: T tovább mehet, hiszen senki nem használja amit ő írt bele, mert már előbb felülírták \normalsize
+ 	\end{center}
+
+Összefoglalva:
+
+Olvasás: $t(T) \geq W(A)$ \checkmark
+
+Írás: $t(T) \geq R(A) \land t(T) \geq W(A)$ \checkmark
+
+Thomassal írás: $t(T) \geq R(A) $
+
+
+\subsubsection{Tranzakcióhibák és az időbélyegek}
+
+	Előfordulhat \textbf{inkonzisztencia}(lavinákból adódóan)\\[2pt]
+	Megoldás:
+
+		\begin{itemize}
+			\item Elfogadjuk a lavinákat, hiszen az időbélyeges tranzakciókezelést tipikusan olyan környezetben használjuk, ahol kevés az abort, tehát a lavina még kevesebb
+			\item Megakadályozzuk a piszkos adat olvasását pl: Commit ponting nem írunk adatbázisba
+
+				Lépései az alábbiak lennének:
+
+				\begin{enumerate}
+					\item Módosítások csak a munkaterületen végezve
+					\item Tranzakció eléri a készpontját
+					\item írások véglegesítése az adatbázison
+				\end{enumerate}
+		\end{itemize}
+Illetve előfordulhat, hogy a "lassú tranzakciók"ból adódóan, 1 adategységet hibásan olvasnak ki.
+
+	Megoldás: \textbf{Zár}ak használata
+
+\subsubsection{Verziókezeléssel}
+
+	Minden adatelem írásakor az előzőt megőrizzük.
+
+	\textbf{Abort} kell, ha T írni akar és $W(A_i) < t(T) < R(A_i)$ \quad Tehát ha olyan adatot olvastunk, melyet most kéne a T tranzakciónak beírnia.
+
+\subsubsection{Elosztott eset}
+
+ \begin{enumerate}
+ 	\item Időbélyeg kiegészítése egyedi azonosítóval csomóponttól függően
+ 	\item Minden lokális példányon el kell végezni a módosítást
+ 	\item PL: Wall protokoll szerint döntendő el hogy $READ\ A$ érvényes-e (Egy $R(A_i)$ és $W(A_i)$ vizsgálat)
+ \end{enumerate}

@@ -1,0 +1,27 @@
+sudo: required
+dist: trusty
+addons:
+  apt:
+    packages:
+    - texlive-xetex
+    - texlive-latex-extra
+    - lmodern
+    - texlive-latex-recommended
+    - xzdec
+    - texlive-fonts-recommended
+script:
+- tlmgr init-usertree
+- tlmgr option repository ftp://tug.org/historic/systems/texlive/2015/tlnet-final
+- tlmgr update --all
+- tlmgr install etoolbox tcolorbox framed polyglossia hyperref pgf xcolor
+- xelatex adatb.tex
+- xelatex adatb.tex
+deploy:
+  provider: releases
+  api_key:
+    secure: KRQueHOVP6agADhBPLVu/hIV9TaW26Bm9/pWDEpdmJatcvzXjHvKtDiOv2vAErFyAH0fvZzyBX440Fja/QUmfVLx+j6a/aAWjjMXZkSEScXrRHaTt5Z6yenYJm+yOFFSwK6DggwxQRuXhHQCIVKvKAj5mxzhBq0IIHEsqqK403kj5JHaerdBVlWbuA6WwopIrIndgZFh85g47W13bORJ6PiOvTuxaEve32tC4R4hGEh6EnGReIlAP/wdGF7bJmQl+pyFsFwM0Z5RQ2LztTJDlfsgmKqvwEWwmiT4tIU/34BI4t+wzuCWR27Uyy7sx8qz7qfyCaZU3KfYsDbr72/rl0UosLoW2DAfMKJKcqVvuTlmIkwG9/dmQScQSOOvO3a2gJMHs7uiPwfUgzhpKAqif48yTe68Lm28ljSoJffL8UGOGEU8rkIBwYRYxJgMkptjgJNHdC3kkTMRhkr84z34ZBxv0gfX7FssEUyCSAeHE1pO9+OKxcSO59atA5i3f2f1KWgJNMT1gW98bzILs1VvcHSXBggv/bV4rIocgJpJiLJxireDz13ukp0w0yhhoDzAzpNr0RsCRcjCpgPTyyK8bzqUIuDtpI/8N30gFMYzQ6q0u7+WXuxJCss1sR6ck/9bP3GxNlUkHRMYGpJy/hM+QD4y3Dno4Mtzty/Ksjm+8u4=
+  file: adatb.pdf
+  skip-cleanup: true
+  overwrite: true
+  on:
+    repo: bme-notes/adatb

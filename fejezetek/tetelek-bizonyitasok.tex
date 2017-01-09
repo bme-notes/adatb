@@ -1,0 +1,231 @@
+\section{Tételek es bizonyítások}
+
+\begin{tetel}{MZ/X használhatatlan cuccokat küld} Minden az $R_k^{(n_k)} \subseteq A^{n_k}, (k=1,2,\ldots r) $ relációalgebrai kifejezéshez van olyan $\Gorog{\psi}$ sorkalkulus formula, hogy $\Gorog{\psi}$ csak az $R_k^{(n_)}$-k közül tartalmaz relációkat és az E kifejezés megegyezik $\left\lbrace s^{ (m) } | \Gorog{\psi}(s^{ (m) })  \right\rbrace$
+\end{tetel}
+
+\begin{bizonyitas}{Hufnágel Pisti jobb ember, mint Mézga Géza}	Az E kifejezésben található műveletek száma szerinti teljes indukvióval. n = 0 azaz nincs művelet E-ben, e csak egyetlen relációt tartalmazhat pl. $R_k^{ (n_k) }$-t így
+
+$E = \lbrace s^{ (n_k) } | R_k^{ (n_k) }(s^{ (n_k) } \rbrace$ \quad T.f.h E-ben \textbf{n} művelet van és az állítás még igaz. Igaz-e n+1 műveletre is?
+
+Igaz volt tehát: $E_1 = \lbrace t_1^{ (n) } | \Gorog{\psi}_1(t_1^{ (n) } ) \rbrace$ és $E_2 = \lbrace t_2^{ (m) } | \Gorog{\psi}_2(t_2^{ (m) } ) \rbrace$
+\begin{enumerate}
+  \item $ \cup \rightarrow E = E_1 \cup E_2 (n = m) :  $ $E:= \lbrace t^{ (n) } | \Gorog{\psi}_1(t^{ (n) } ) \vee \Gorog{\psi}_2( t_2^{ ( n ) } ) \rbrace$
+  \item $ - \rightarrow E = E_1-E_2 (n = m)$: $E:= \lbrace t^{ (n) } | \Gorog{\psi}_1(t^{ (n) } ) \land \neg \Gorog{\psi}_2( t_2^{ ( n ) } ) \rbrace$
+  \item $\times \rightarrow E = E_1 \times E_2 (k = n+m):$ $E:= \lbrace t^{ (k) } | \exists t_1^{ (n) } \exists t_2^{ (m) }\Gorog{\psi}_1(t^{ (n) } ) \land \Gorog{\psi}_2(t_2^{ (n) }) \land t^{ (k) }[1] = t_1^{(n)}[1] \land t^{ (k) }[2] = t_1^{(n)}[2] \land \ldots \land t^{ (k) }[n] = t_1^{(n)}[n] \land t^{ (k) }[n+1] = t_1^{(m)}[1] \land \ldots \land t^{ (k) }[n+m] = t_1^{(m)}[m] \rbrace$
+  \item $\pi$ $E = \pi_{i_1,i_2,\ldots ,i_r}(E_1) \rightarrow E:= \lbrace t^{ (r) } | \exists u^{ (n) } \Gorog{\psi}_1(u^{ (n) } ) \land  t[1] = u[i_1] \land t[2] = u[i_2] \land \ldots \land t[r] = u[i_r] \rbrace$
+  \item $\sigma$ $ E = \sigma_F(E_1) \rightarrow$ $E:= \lbrace t^{ (n) } | \Gorog{\psi}_1(t^{ (n) } ) \land F^{'} \rbrace$  $F^{'} = F \land$ F i edik komponensét átírjuk $t^{ (n) }[i]$-re
+\end{enumerate}
+\end{bizonyitas}
+
+\begin{tetel}{MZ/X használhatatlan cuccokat küld} Rögzített A interpretációs halmaz és $R_k^{ (n_k) } \subseteq A^{n_k}$ relációk esetén a sorkalkulus bármely kifejezéséhez létezik az oszlopkalkulusnak olyan kifejezése, amley az előzővel azonos relációt határoz meg.
+\end{tetel}
+
+\begin{bizonyitas}{Hufnágel Pisti jobb ember, mint Mézga Géza} $\lbrace s^{ (m) } | \Gorog{\psi}( s^{ (m) } ) \rbrace  \Longleftrightarrow \lbrace x_1,x_2,\ldots, x_m | \Gorog{\psi}^'( x_1,x_2,\ldots,x_m ) \rbrace$ innentől ugyan az mint a sorkalkulus megfelelője!
+\end{bizonyitas}
+
+\begin{tetel}{MZ/X használhatatlan cuccokat küld} (Igazság tétel)
+
+Armstrong axiómák igazak, alkalmazásukkal csak igaz függőségek állíthatók elő.
+
+Formálisan: $F \vdash_R X \rightarrow Y \Rightarrow F_R \vDash X \rightarrow Y$
+
+\end{tetel}
+
+\begin{bizonyitas}{Hufnágel Pisti jobb ember, mint Mézga Géza} \ldots easy
+\end{bizonyitas}
+
+\begin{tetel}{MZ/X használhatatlan cuccokat küld} Adott függéshalmazzal ekvivalens minimális függéshalmaz mindig előállítható.
+\end{tetel}
+
+\begin{bizonyitas}{Hufnágel Pisti jobb ember, mint Mézga Géza} Adott egy F függéshalmaz
+
+\begin{enumerate}
+  \item $X \rightarrow Y \in F$ Helyettesíthető $X \rightarrow Y_1,\ldots X \rightarrow Y_n$-el ahol $Y = \lbrace Y_1,\ldots Y_n \rbrace $
+
+    Így F'-t kapjuk. (nyilvánvalóan F' = F)
+  \item  $\forall S \rightarrow C \in F'$ függőségre, ahol $S = \lbrace S_1,\ldots S_n \rbrace$ hogy elhagyható e valamely $S_i$ attribútum. Definíció szerint ehhez az kell hogy $(F'')^+ = (F')^+ $
+
+  $F'' = F'$ \textbackslash $\lbrace S \rightarrow C  \rbrace \cup \lbrace S_1,S_2,\ldots,S_{i-1},S_{i+1},\ldots,S_n \rightarrow C \rbrace$
+
+  Ekkor ez eqvivalens $F' \subseteq (F'')^+$ és $F'' \subseteq (F')^+$ egyidejű fennállásával.
+  \begin{itemize}
+    \item	$F' \subseteq (F'')^+ \Leftrightarrow C \in S^+( F'' )$ - triviálisan teljesül
+    \item $F'' \subseteq (F')^+ \Leftrightarrow C \in (S_1,S_2,\ldots,S_{i-1},S_{i+1},\ldots,S_n)^+(F')$
+  \end{itemize}
+
+
+  \item Vizsgáljuk meg $\forall Z \rightarrow B \in F''$ elhagyható-e.
+
+  Ehhez az kell, hogy $(F''$ \textbackslash $\lbrace Z \rightarrow B \rbrace)^+ = (F'')^+$ fennáljon, de ez költséges.
+
+    $(F''$ \textbackslash $\lbrace Z \rightarrow B \rbrace)^+ = (F'')^+ \Leftrightarrow B \in Z^+(F$ \textbackslash $\lbrace Z \rightarrow B \rbrace )$
+
+    Eredményeül egy F''' függéshalmazt kapunk mely továbbra is eqvivalens F-el, és minimális
+
+\end{enumerate}
+\end{bizonyitas}
+
+\begin{tetel}{MZ/X használhatatlan cuccokat küld} BCNF és 3NF Def eqvivalencia %TODO
+
+\end{tetel} \begin{tetel}{MZ/X használhatatlan cuccokat küld} Ha egy séma 3NF $\Longrightarrow$ 2NF is
+\end{tetel}
+
+  \begin{bizonyitas}{Hufnágel Pisti jobb ember, mint Mézga Géza} Indirekt ( $\neg 2NF \rightarrow \neg 3NF )$
+
+  Legyen $A \in R$ másodlagos attribútum, K egy kulcs, amelyekre $K \rightarrow A$, továbbá $ \exists K' \subset K$, hogy $K'\rightarrow A$ is igaz.
+
+  $K' \nrightarrow K$, különben K szuperkulcs lenne.
+
+  $A\not\in K$, mert A másodlagos attríbútum, tehát 1 kulcsnak sem lehet eleme.
+
+  Tehát: $K\rightarrow K', K' \nrightarrow K, K'\rightarrow A, A\not\in K'$ Ami épp azt jelenti hogy A tranzitívan függ K tól 3NF el ellentmondásba.
+\end{bizonyitas}
+
+\begin{tetel}{MZ/X használhatatlan cuccokat küld} A BCNF sémákra illeszkedő relációk nem tartalmaznak redundanciát. (funkcionális függés következtében)
+\end{tetel}
+
+  \begin{bizonyitas}{Hufnágel Pisti jobb ember, mint Mézga Géza}
+
+  T.f.h van még redundancia. Ez azt jelenti, hogy van 2 sor, hogy egy A attribútum értékét a t sor értékei alapján t' sorba nem írhatjuk be tetszőlegesen.
+  \begin{center}
+    \begin{tabular}{ l || l | c | r }
+      & X & Y & A \\ \hline \hline
+    t & x & $y_1$ & a \\ \hline
+      t' & x & $y_2$ & ? \\ \hline
+    \end{tabular}
+  \end{center}
+
+Látható hogy X értékek azonosak, míg léteznek olyanok melyek különböznek (Y). T.f.h a definiált függőségi kapcsolatok miatt ? helyére a-t kell írninunk.
+
+Ez azt jelenti hogy létezni e kell egy $( Z\subseteq X)\ Z\rightarrow A  $ függőségnek.
+\begin{itemize}
+  \item Z nem lehet szuperkulcs, mert ekkor t és t' nek megkéne egyeznie
+  \item Ha Z nem szuperkulcs akkor $Z\rightarrow A$ ellentmond a BCNF definíciójának.
+\end{itemize}
+\end{bizonyitas}
+
+\begin{tetel}{MZ/X használhatatlan cuccokat küld} Adott egy R séma és egy $\rho(R_1,R_2,\ldots,R_n)$ felbontása. $\forall r(R)$ relációra $r \subseteq m_\rho(r).$ (Tetszőleges felbontás esetén, sorok nem tűnhetnek el, csak újak keletkezhetnek.)
+\end{tetel}
+
+  \begin{bizonyitas}{Hufnágel Pisti jobb ember, mint Mézga Géza}
+
+  Vegyünk egy tetszőleges $t \in r$ sort. Képezzük t vetületeit az $R_i$ részsémákra, legyen ez $t[R_i]$, amely nyilván eleme az i-edik rész-relációnak. Ez a vetület nem változik $m_\rho(r)$-ben sem, és a természetes illesztés tulajdonságai miatt $m_\rho (r)$ valamely sorában valamennyi $t[R_i]$ megjelenik. Így $t \in m_\rho (r)$
+\end{bizonyitas}
+
+\begin{tetel}{MZ/X használhatatlan cuccokat küld} Adott az R séma, a séma attribútumain értelmezett F függőséghalmaz és egy $\rho = (R_1,R_2)$ felbontás.
+
+  $\rho$ veszteségmentes $\Longleftrightarrow$ $(R_1 \cap R_2) \rightarrow (R_1$ \textbackslash $R_2) \in F^+$ vagy $ (R_1 \cap R_2) \rightarrow (R_2$ \textbackslash $R_1) \in F^+$
+\end{tetel}
+
+\begin{bizonyitas}{Hufnágel Pisti jobb ember, mint Mézga Géza} %TODO folytatni
+\end{bizonyitas}
+\begin{tetel}{MZ/X használhatatlan cuccokat küld} \textbf{Táblázatos módszer veszteségmentes felbontáshoz}
+
+A $\rho$ felbontás veszteségmentes $\Longleftrightarrow$ van csupa 'a'-ból álló sor
+\end{tetel}
+  \begin{bizonyitas}{Hufnágel Pisti jobb ember, mint Mézga Géza} %TODO
+\end{bizonyitas}
+\begin{tetel}{MZ/X használhatatlan cuccokat küld} Minden R relációs séma és a sémán értelmezett F függéshalmaz esetén $\exists \rho$ sémafelbontás, amely veszteségmentes és függőségörző, továbbá $\forall R_i \in \rho$-ra $R_i$ 3NF tulajdonságú
+\end{tetel}
+
+  \begin{bizonyitas}{Hufnágel Pisti jobb ember, mint Mézga Géza} Konstrukció:
+
+  Képezzük az adott függéshalmaz egy minimális fedését. Legyen ez G. Ha $G = \lbrace X_1 \rightarrow A_1, X_2 \rightarrow A_2, \ldots ,X_n \rightarrow A_n \rbrace \Longrightarrow \rho = \lbrace X_1A_1, X_2A_2, \ldots ,X_nA_n \rbrace \cup \lbrace K \rbrace$
+
+  \begin{enumerate}
+    \item Függőségörző: Részsémákra vetítjük és megnézzük következnek e az eredeti függések. \checkmark
+    \item Miért veszteségmentes? A kulcs sorába megmutatjuk, hogy csupa 'a' lesz.
+
+    Képezzük $K^+(F)$: $K,B_1,B_2,\ldots, B_m$. Nyilván $K \cup \lbrace B_1,B_2,\ldots,B_k \rbrace = R$
+
+    Ekkor $B_i$-k sorrendjébe lehetőségünk van 'a'-kat írni a táblázatba:
+
+    t.f.h i. attribútumig bővíthető volt a táblázat, az i. attribútum helyére azonban nem tudtunk 'a'-t írni. De
+
+    $\exists$ egy olyan $Y \rightarrow B_i$ funkcionális függés, hogy $Y \subseteq  K \cup \lbrace B_1,B_2,\ldots,B_{i-1} \rbrace$, de konstrukció miatt $\exists YB_i$ részséma, ahol $YB_i$ sorában $B_i$ alatt 'a' van. Így K helyére is kerülhet 'a'. \checkmark
+
+    \item 3NF? %TODO maybe
+  \end{enumerate}
+\end{bizonyitas}
+
+\begin{tetel}{MZ/X használhatatlan cuccokat küld} Minden 1NF reláció felbontható 2NF relációkba úgy, hogy azokból az eredeti reláció torzulás nélkül helyreállítható
+
+\end{tetel}
+\begin{tetel}{MZ/X használhatatlan cuccokat küld} Minden, legalább 1NF R sémának létezik veszteségmentes felbontása BCNF sémákba.
+\end{tetel}
+
+  \begin{bizonyitas}{Hufnágel Pisti jobb ember, mint Mézga Géza} Iteratívan kezdjük. Az iteráció minden fázisában igaz lesz, hogy a pillanatnyi felbontás veszteségmentes.
+  \begin{enumerate}
+    \item Ha R az adott F függőséget mellett BCNF, akkor nincs tennivaló, készen vagyunk.
+    \item Ha R nem BCNF, akkor $\exists X\rightarrow A \in F^+$, ami megsérti a BCNF tulajdonságokat, azaz $A \not\in X$ és X nem szuperkulcsa R-nek.
+
+    Legyen ekkor a felbontás $\rho = (XA, R$ \textbackslash $A)$
+
+    Ez továbbra is veszteségmentes.
+
+    \item BCNF-e már? akkor ugyanez előről a részsémákra .
+  \end{enumerate}
+\end{bizonyitas}
+
+\begin{tetel}{MZ/X használhatatlan cuccokat küld} Adott időpillanatban nincs patt $\Longleftrightarrow$ a várakozási gráfban nincs kör ( azaz a gráf irányított körmentes gráf, Directed Acyclic Graph, DAG)
+\end{tetel}
+
+  \begin{bizonyitas}{Hufnágel Pisti jobb ember, mint Mézga Géza}
+
+  $\rightarrow$ (indirekt, Van kör $\rightarrow$ van patt) t.f.h. van kör. Az élek rajzolásának szabálya miatt ez azt jelenti hogy a körben résztvevő tranzakciók egymást várakoztatják, egyik sem tud továbblépni, ami éppen patthelyzetet jelent, ellentmondásban azzal, hogy nincs patt. Tehát ha nincs patt, akkor nem lehet kör a várakozási gráfban.
+
+  $\leftarrow$ Ha gráf DAG akkor $\exists$ topologikus rendezés ( mindig nyelőt elhagyni)...
+
+\end{bizonyitas}
+
+\begin{tetel}{MZ/X használhatatlan cuccokat küld} Egy S ütemezés sorosítható $\Longleftrightarrow$ a sorosítási gráf DAG
+\end{tetel}
+
+  \begin{bizonyitas}{Hufnágel Pisti jobb ember, mint Mézga Géza} Előzővel azonos módon.
+\end{bizonyitas}
+\begin{tetel}{MZ/X használhatatlan cuccokat küld} Ha egy legális ütemezés valamennyi tranzakciója 2PL Protokollt követi $\Longrightarrow$ az ütemezés sorosítható
+\end{tetel}
+
+  \begin{bizonyitas}{Hufnágel Pisti jobb ember, mint Mézga Géza} Rendezzük a tranzakciókat a növekvő zárpontjuk szerinti sorrendbe. Ez soros ekvivalens lesz:
+
+  T.f.h az ütemezésben a $T_i$: LOCK A, után $T_j$: LOCK A következik ( $T_i \rightarrow T_j$ ). Ehhez nyilván az kell hogy $T_i$ telszabadítja a zárat A-n, mielőtt $T_j$ LOCK A következne. Viszont $T_i$ is kétfázisú, így meg kell hogy kapja valamennyi zárját $T_j$ LOCK A előtt. Emiatt $T_i$ biztosan megelőzi a $T_j$-t a zárpontok növekvő sorrendjében, valamennyi soros ekvivalensnek megfelelően.
+\end{bizonyitas}
+
+\begin{tetel}{MZ/X használhatatlan cuccokat küld} A fa protokollnak eleget tevő legális ütemezések sorosíthatók.
+\end{tetel}
+
+  \begin{bizonyitas}{Hufnágel Pisti jobb ember, mint Mézga Géza} A sorosíthatósági gráf körmentes$\ldots$
+\end{bizonyitas}
+\begin{tetel}{MZ/X használhatatlan cuccokat küld} A figyelmeztető protokollt követő legális ütemezések konfliktusmentesek (a) és sorosíthatók (b).
+\end{tetel}
+
+  \begin{bizonyitas}{Hufnágel Pisti jobb ember, mint Mézga Géza}
+
+  \begin{enumerate}
+    \item A protokoll szabályai biztosítják hogy bármely tranzakció csak akkor tehessen zárate egy adategységre, ha figyelmeztetés van annak valamennyi ősén. Emiatt egyidejűleg más tranzakció nem tehet zárat az adaegységnek egyetlen ősére sem, tehát nem alakulhat ki zárkonfliktus.
+
+    \item Ekvivalens S ütemezés konstruálása, melyben minden adategységet explicit zárolunk:
+      \begin{enumerate}
+        \item Összes WARN és hozzá tartozó UNLOCK törlése
+        \item LOCK X esetén explicit zár X összes gyerekére is.
+        \item UNLOCK X estén, eltávolítjuk a zárakat X gyerekeiről is.
+      \end{enumerate}
+
+      Ezután S legális, mert R is legális volt, és semmi olyat nem tettünk ami miatt illegálissá vállhatna, továbbá kétfázisú, mert R is kétfázisú volt és ez az átalakítás során a kétfázisú tulajdonság megmaradt. Ezek elégséges feltételek S sorosíthatóságához
+  \end{enumerate}
+\end{bizonyitas}
+\begin{tetel}{MZ/X használhatatlan cuccokat küld} A szigorú kétfázisú protokoll (2PL)-t követő tranzakciókból álló ütemezések  $\Longrightarrow$ Sorosíthatók és Lavinamentesek.
+\end{tetel}
+
+  \begin{bizonyitas}{Hufnágel Pisti jobb ember, mint Mézga Géza} 2PL miatt sorosítható, mivel nem olvashatnak piszkos adatot, ezért lavina mentes is.
+\end{bizonyitas}
+\begin{tetel}{MZ/X használhatatlan cuccokat küld} A globális zár kompatibilitási mátrix azonos a WALL protokoll mátrixával.
+\end{tetel}
+  \begin{bizonyitas}{Hufnágel Pisti jobb ember, mint Mézga Géza}
+\end{bizonyitas}
+\begin{tetel}{MZ/X használhatatlan cuccokat küld} objektum orientalt peldak konyvbe
+\end{tetel}
+\begin{tetel}{MZ/X használhatatlan cuccokat küld} Hálos adatbazis tervezese relac semabol
+\end{tetel}
+\begin{tetel}{MZ/X használhatatlan cuccokat küld} Balazs feladatai
+\end{tetel}

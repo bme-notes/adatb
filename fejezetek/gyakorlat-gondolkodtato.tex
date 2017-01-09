@@ -1,0 +1,72 @@
+\section{Gyakorlat - Gondolkodtató kérdések}
+
+\subsection{Elso gyakorlat}
+
+\subsection{Masodik gyakorlat}
+
+\subsection{Harmadik gyakorlat}
+
+	\begin{enumerate}
+		\item Az ER modellből milyen funkcionális függések olvashatók le? Ha ezeken kívül más függőség nem adott, akkor mit mondhatunk az ilyen módon származtatott adatbázisséma normálformájáról?
+
+		\begin{enumerate}
+			\item Egy entitás kulcsa, egyértelműen meghatározza az adott entitást így ez egy funkcionális függés lenne.
+			\item 1-N kapcsolat esetén,  PL Tankör - diákok kapcsolatban a Tankör meghatározza a diákokat.
+			\item 1-1 kapcsolat esetén, a meghatározás kölcsönös. PL Feleség - Férj Kapcsolat
+		\end{enumerate}
+
+
+	\end{enumerate}
+
+\subsection{Negyedik gyakorlat}
+
+
+\subsection{Otodik gyakorlat}
+
+\subsection{Hatodik gyakorlat}
+
+	\begin{enumerate}
+		\item A naplózás tárhely igényét szeretnénk otimalizálni. Helyes-e a következő érvelés? Mivel egy tranzakciónak csak a COMMIT pontjáig van szüksége a napóra - hisze na COMMIT utáni műveletek biztosan lefutnak -, ezért szigorú 2PL alkalmazásával megelőzzük a lavinahatást, és a COMMIT naplózása helyett így  naplóból már törölhetjük az adott tranzakcióhz tartozó bejegyzéseket ( ha garantáljuk ezen törlés atomicitását.)\\[-2pt]
+
+		Nem, mert a COMMIT pont után még előfordulhat rendszer hiba, és előfordulhat hogy esetleg még az adatbázisba írás megse történt vagy az adott adategység megváltozott értéke még csak a memóriában van benne. Ez ekkor el fog veszni ha elmegy az áram például és nincs a naplóban.
+
+		Egy konzisztens állapot előtti bejegyzéseket (például checkpoint előttieket), nyugodtan törölhetjük, hiszen ez már nem vész el, végleges.
+
+		\item \textcolor{red}{Hogyan biztosítja a holtpontmentességet a 2PL?}
+
+		Nem vagyok benne biztos, de egy soros eqvivalens kikényszerítésével, hiszen ha egy ütemezés soros $\Rightarrow$ akkor pattmentes.
+
+		\item Lehet-e konkurensen módosítani egy állományt, amire B* fa épül? Mikor lehet felszabadítan a gyökér elemet fogó zárat? %TODO Feltétlen Fa protokollt fog használni
+
+		\item Miért fontos a sorosíthatóság?
+
+		Mert így elkerülhető a Dirty read,Phantom read,Lost update és a non-repetable read. Illetve egy soros eqvivalens Deadlock ( pattmentes) és az izolációs elv teljesül, a tranzakció biztosan korrekt lesz.
+
+		\item Egy ütemezés nem sorosítható, ennek ellenére érvényes lehet-e az izolációs elv?
+
+		Igen, explicit kimondja a könyv, ha Soros $\Rightarrow$ Izolált. Ezért Izolált $\nRightarrow$ Soros
+
+		\item Ha a naplófájl tartalmaz minden információt a változásokról, akkor miért kell az adatbázis?
+
+		A naplófájl csak a változásokat tartalmazza, ha nem lenne adatbázis, akkor nem lenne meg az a kiindulási alap amihez képest a változásokat tároljuk.
+
+		Másrészről ha nincs adatbázis, csak napló akkor egy adatelem értékéhez a napló nagy részét végig kéne olvasni ,hogy megtaláljuk az értékét. ( a keresés ideje exponenciálisan nőne )
+
+		\item Mikor érdemes 2PL-t és mikor érdemes időbélyeges tranzakciókezelést használni?
+
+		Időbélyegest ott használjuk ahol kevés az abort ( konfliktus ), hiszen ekkor hiba nélkül (lavina mentesen) működik.
+		2PL?
+
+		\item Mi történik egy sorosíthatósági gráffal, ha egy tranzakció abortál.
+
+		Ha létezik egy $T_1 \rightarrow T_2 \rightarrow T_3$ sorosítási gráf, és $T_2$ abortál akkor a csomópontba bemenő éleket a kimenő élek mentén "meghosszabítjuk". Jelen esetben $T_1 \rightarrow T_3$ lesz. $T_1$, $T_3$ esetén nincs dolgunk. Általános esetben ugyanez.
+
+		\item Időbélyeges tranzakciókezelés miként véd a holtpont ellen?
+
+		Nincsenek zárak, így nem lehet holtpont :)
+
+		Ha mégis zárakat használunk ( mert van ilyen időbélyeges tranzakciókezelés is), akkor az adategységekhez egy megadott sorrendben rendelve a zárakat.
+
+		\item
+
+	\end{enumerate}
