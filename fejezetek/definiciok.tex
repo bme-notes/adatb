@@ -1,55 +1,167 @@
 \section{Definiciok}
 
-\begin{definicio}{Mézga Géza}Azt az index állományt, amley nem kulcsmezőre tartalmaz indexeket, \textit{invertált állománynak} nevezzük. Az index neve ekkor \textit{másodlagos index}.
-\end{definicio}\begin{definicio}{Mézga Géza}Egyed(entitás) - A valós világban létező, logikai vagy fizikai szempontból saját léttel rendelkező dolog, amelyről adatokat tárolunk.
-\end{definicio}\begin{definicio}{Mézga Géza}A tulajdonság az, ami az entitásokat jellemzi, amelyen vagy amelyeken keresztül az entitások megkülönböztethezők.
-\end{definicio}\begin{definicio}{Mézga Géza}Egyedek halmaza ( entity set): Az azonos attribútum-típusokkal jellemzett egyedek összessége.
+\begin{definicio}{Mézga Géza}
+Azt az index állományt, amley nem kulcsmezőre tartalmaz indexeket, \textit{invertált állománynak} nevezzük. Az index neve ekkor \textit{másodlagos index}.
+\end{definicio}
+
+\begin{definicio}{Mézga Géza}
+Egyed(entitás) - A valós világban létező, logikai vagy fizikai szempontból saját léttel rendelkező dolog, amelyről adatokat tárolunk.
+\end{definicio}
+
+\begin{definicio}{Mézga Géza}
+A tulajdonság az, ami az entitásokat jellemzi, amelyen vagy amelyeken keresztül az entitások megkülönböztethezők.
+\end{definicio}
+
+\begin{definicio}{Mézga Géza}
+Egyedek halmaza ( entity set): Az azonos attribútum-típusokkal jellemzett egyedek összessége.
 
 PL: EMBER(név, szüldátum) EMBER = Egyed-halmaz, Név = Attribútum-típus
-\end{definicio}\begin{definicio}{Mézga Géza}Kapcsolat - Entitások névvel ellátott viszonya
-\end{definicio}\begin{definicio}{Mézga Géza}1-1 kapcsolat: Olyan (bináris) kapcsolat , amelyben a résztvevő entitáshalmazok példányaival egy másik entitáshalmaznak legfeljebb egy példánya van kapcsolatban.
-\end{definicio}\begin{definicio}{Mézga Géza}Több-1 kapcsolat: Egy K:E1,E2 kapcsolat több-egy, ha E1 példányaihoz legfeljebb egy E2-beli példány tartozik.
-\end{definicio}\begin{definicio}{Mézga Géza}Egy kapcsolat több-több funkcionalitású, ha nem több-egy egyik irányban sem.
-\end{definicio}\begin{definicio}{Mézga Géza}Az ER modellezésnél az attribútumoknak azt a halmazát, amely az entitás példányait egyértelműen azonosítja kulcsnak nevezzük.
-\end{definicio}\begin{definicio}{Mézga Géza}Halmazok Descartes-szorzatának részhalmazát relációnak nevezzük.
-\end{definicio}\begin{definicio}{Mézga Géza}$DOM(\Psi) = \lbrace \Psi$-beli alaprelációk valamennyi attribútumának értékei$\rbrace \cup \lbrace \Psi$-ben előforduló konstansok$ \rbrace$
-\end{definicio}\begin{definicio}{Mézga Géza}$\lbrace t | \Psi(t) \rbrace$ biztonságos, ha
+\end{definicio}
+
+\begin{definicio}{Mézga Géza}
+Kapcsolat - Entitások névvel ellátott viszonya
+\end{definicio}
+
+\begin{definicio}{Mézga Géza}
+1-1 kapcsolat: Olyan (bináris) kapcsolat , amelyben a résztvevő entitáshalmazok példányaival egy másik entitáshalmaznak legfeljebb egy példánya van kapcsolatban.
+\end{definicio}
+
+\begin{definicio}{Mézga Géza}
+Több-1 kapcsolat: Egy K:E1,E2 kapcsolat több-egy, ha E1 példányaihoz legfeljebb egy E2-beli példány tartozik.
+\end{definicio}
+
+\begin{definicio}{Mézga Géza}
+Egy kapcsolat több-több funkcionalitású, ha nem több-egy egyik irányban sem.
+\end{definicio}
+
+\begin{definicio}{Mézga Géza}
+Az ER modellezésnél az attribútumoknak azt a halmazát, amely az entitás példányait egyértelműen azonosítja kulcsnak nevezzük.
+\end{definicio}
+
+\begin{definicio}{Mézga Géza}
+Halmazok Descartes-szorzatának részhalmazát relációnak nevezzük.
+\end{definicio}
+
+\begin{definicio}{Mézga Géza}
+$DOM(\Psi) = \lbrace \Psi$-beli alaprelációk valamennyi attribútumának értékei$\rbrace \cup \lbrace \Psi$-ben előforduló konstansok$ \rbrace$
+\end{definicio}
+
+\begin{definicio}{Mézga Géza}
+$\lbrace t | \Psi(t) \rbrace$ biztonságos, ha
   \begin{itemize}
     \item minden $\Psi(t)-t$ kielégítő t minden komponense $DOM(\Psi)$-beli és
     \item $\Psi$-nek minden $\exists u : \omega(u)$ formulára teljesül , hogy ha u kielégíti $\omega$-t  az $\omega$ beli szabad változók valamely értéke mellett $\longrightarrow$ $DOM(\omega)$ beli (a részformula biztonságos)
   \end{itemize}
-\end{definicio}\begin{definicio}{Mézga Géza}Egy R rekord tipus egy olyan $A_1, A-2, \ldots A_n$ - n es (tupel) ahol $A_i$-k az attribútumnevek és midnen $A_i$-hez egy $D_i$ halmaz, az attribútum domain(értelmezési tartomány)-ja is hozzátarozik, amely halmazból az $A_i$ attribútum értéket vehet fel.
-\end{definicio}\begin{definicio}{Mézga Géza}Legyen $R_1$ és $R_2$ két rekord-typus és legyenek $F(R_1)$ és $F(R_2)$ a konkrét esetek halmazai. Ekkor az S set-typust az $S:= R_1 \times R_2$ művelettel definiálhatjuk, ami egy $F(R_2)\rightarrow F(R_1)$ függvényszerű kapcsolatot ír le. $R_1$ az owner típus, $R_2$ pedig a member-típus
-\end{definicio}\begin{definicio}{Mézga Géza}Ha egy relációban valamely attribútum értékét a relációban található más attribútum(ok) értékéből ki tudjuk következtetni valamely ismert következtetési szabály segítségével akkor a relációt \textbf{redundánsnak} nevezzük.
-\end{definicio}\begin{definicio}{Mézga Géza}Funkcionális függés...
-\end{definicio}\begin{definicio}{Mézga Géza}$Ha X,Y \subset R \land X\rightarrow Y$, de Y nem függ funkcionálisan X egyetlen valódi részhalmazától sem, akkor X-et Y \textbf{determinánsának} nevezzük. Azt is mondhatjuk, hogy Y \textbf{teljesen függ} X-től. Ha van $X'\rightarrow Y$, akkor Y \textbf{részlegesen függ} X-től.
-\end{definicio}\begin{definicio}{Mézga Géza}Teljesen függés(jobb oldal) = determináns(bal oldal)
-\end{definicio}\begin{definicio}{Mézga Géza}X-et pontosan akkor nevezzük kulcsnak az R reláción, ha $X \rightarrow R \land \not\exists X' : X' \subset X \land X' \rightarrow R$
-\end{definicio}\begin{definicio}{Mézga Géza}(igaz) egy adott R sémán az attribútumain értelmezett $F_R$ függéshalmaz mellett egy $X \rightarrow Y$ függőség pontosan akkor igaz, ha minden olyan r(R) reláción fennáll, amelyeken $F_R$ valamennyi függősége is fennáll. Jelölése: $F_R\models X \rightarrow Y$
-\end{definicio}\begin{definicio}{Mézga Géza}(Levezethető) egy $W \rightarrow Z$ funkcionális függőség pontosan akkor vezethező le adott $F_R$ függőségekből, ha az axiómák ismételt alkalmazásával $F_R$ ből kiindulva megkaphatjuk $W \rightarrow Z$-t Jelölése: $F_R\vdash W\rightarrow Z$
-\end{definicio}\begin{definicio}{Mézga Géza}Attribútum halmaz lezárása...
-\end{definicio}\begin{definicio}{Mézga Géza}Az F függéshalmaz lezárása mindazon függőségek halmaza, amelyek az F függéshalmaz elemeiből az Armstrong axiómák alapján következnek.
+\end{definicio}
+
+\begin{definicio}{Mézga Géza}
+Egy R rekord tipus egy olyan $A_1, A-2, \ldots A_n$ - n es (tupel) ahol $A_i$-k az attribútumnevek és midnen $A_i$-hez egy $D_i$ halmaz, az attribútum domain(értelmezési tartomány)-ja is hozzátarozik, amely halmazból az $A_i$ attribútum értéket vehet fel.
+\end{definicio}
+
+\begin{definicio}{Mézga Géza}
+Legyen $R_1$ és $R_2$ két rekord-typus és legyenek $F(R_1)$ és $F(R_2)$ a konkrét esetek halmazai. Ekkor az S set-typust az $S:= R_1 \times R_2$ művelettel definiálhatjuk, ami egy $F(R_2)\rightarrow F(R_1)$ függvényszerű kapcsolatot ír le. $R_1$ az owner típus, $R_2$ pedig a member-típus
+\end{definicio}
+
+\begin{definicio}{Mézga Géza}
+Ha egy relációban valamely attribútum értékét a relációban található más attribútum(ok) értékéből ki tudjuk következtetni valamely ismert következtetési szabály segítségével akkor a relációt \textbf{redundánsnak} nevezzük.
+\end{definicio}
+
+\begin{definicio}{Mézga Géza}
+Funkcionális függés...
+\end{definicio}
+
+\begin{definicio}{Mézga Géza}
+$Ha X,Y \subset R \land X\rightarrow Y$, de Y nem függ funkcionálisan X egyetlen valódi részhalmazától sem, akkor X-et Y \textbf{determinánsának} nevezzük. Azt is mondhatjuk, hogy Y \textbf{teljesen függ} X-től. Ha van $X'\rightarrow Y$, akkor Y \textbf{részlegesen függ} X-től.
+\end{definicio}
+
+\begin{definicio}{Mézga Géza}
+Teljesen függés(jobb oldal) = determináns(bal oldal)
+\end{definicio}
+
+\begin{definicio}{Mézga Géza}
+X-et pontosan akkor nevezzük kulcsnak az R reláción, ha $X \rightarrow R \land \not\exists X' : X' \subset X \land X' \rightarrow R$
+\end{definicio}
+
+\begin{definicio}{Mézga Géza}
+(igaz) egy adott R sémán az attribútumain értelmezett $F_R$ függéshalmaz mellett egy $X \rightarrow Y$ függőség pontosan akkor igaz, ha minden olyan r(R) reláción fennáll, amelyeken $F_R$ valamennyi függősége is fennáll. Jelölése: $F_R\models X \rightarrow Y$
+\end{definicio}
+
+\begin{definicio}{Mézga Géza}
+(Levezethető) egy $W \rightarrow Z$ funkcionális függőség pontosan akkor vezethező le adott $F_R$ függőségekből, ha az axiómák ismételt alkalmazásával $F_R$ ből kiindulva megkaphatjuk $W \rightarrow Z$-t Jelölése: $F_R\vdash W\rightarrow Z$
+\end{definicio}
+
+\begin{definicio}{Mézga Géza}
+Attribútum halmaz lezárása...
+\end{definicio}
+
+\begin{definicio}{Mézga Géza}
+Az F függéshalmaz lezárása mindazon függőségek halmaza, amelyek az F függéshalmaz elemeiből az Armstrong axiómák alapján következnek.
 
 Formálisan: $F^+ = \lbrace X\rightarrow Y | F \models X \rightarrow Y\rbrace$
-\end{definicio}\begin{definicio}{Mézga Géza}Két függéshalmaz pontosan akkor ekvivalens ha lezártjaik megegyeznek.
+\end{definicio}
+
+\begin{definicio}{Mézga Géza}
+Két függéshalmaz pontosan akkor ekvivalens ha lezártjaik megegyeznek.
 
 EZ bonyolult helyette: $F \subseteq G^+ \land G \subseteq F^+$ egyaránt teljesül e
-\end{definicio}\begin{definicio}{Mézga Géza}Minimális függéshalmaz...
-\end{definicio}\begin{definicio}{Mézga Géza}1NF: Egy reláció 1NF, ha csak atomi attribútum-értékek szerepelnek bene.
-\end{definicio}\begin{definicio}{Mézga Géza}2NF: 1NF és benne minden másodlagos attribútum a reláció bármely kulcsától teljesen függ.
-\end{definicio}\begin{definicio}{Mézga Géza}3NF 1): 1NF és $\forall A \in R$ másodlagos attribútum és $\forall X \subseteq R$ kulcs esetén $\not\exists Y$, hogy $ X\rightarrow Y, Y \nrightarrow X, Y\rightarrow A, A \not\in Y$
-\end{definicio}\begin{definicio}{Mézga Géza}3NF 2): 1NF és $\forall$ nem triviális függőségre $X\rightarrow Y$ függőségre
+\end{definicio}
+
+\begin{definicio}{Mézga Géza}
+Minimális függéshalmaz...
+\end{definicio}
+
+\begin{definicio}{Mézga Géza}
+1NF: Egy reláció 1NF, ha csak atomi attribútum-értékek szerepelnek bene.
+\end{definicio}
+
+\begin{definicio}{Mézga Géza}
+2NF: 1NF és benne minden másodlagos attribútum a reláció bármely kulcsától teljesen függ.
+\end{definicio}
+
+\begin{definicio}{Mézga Géza}
+3NF 1): 1NF és $\forall A \in R$ másodlagos attribútum és $\forall X \subseteq R$ kulcs esetén $\not\exists Y$, hogy $ X\rightarrow Y, Y \nrightarrow X, Y\rightarrow A, A \not\in Y$
+\end{definicio}
+
+\begin{definicio}{Mézga Géza}
+3NF 2): 1NF és $\forall$ nem triviális függőségre $X\rightarrow Y$ függőségre
 
 X szuperkulcs vagy Y Elsődleges attribútum
-\end{definicio}\begin{definicio}{Mézga Géza}BCNF: 1NF és Kulcstól tranzitívan nem függ attribútum
-\end{definicio}\begin{definicio}{Mézga Géza}BCNF 2) 1NF és $\forall$ nem triviális $X\rightarrow Y$ függőségre
+\end{definicio}
+
+\begin{definicio}{Mézga Géza}
+BCNF: 1NF és Kulcstól tranzitívan nem függ attribútum
+\end{definicio}
+
+\begin{definicio}{Mézga Géza}
+BCNF 2) 1NF és $\forall$ nem triviális $X\rightarrow Y$ függőségre
 
 X szuperkulcs
-\end{definicio}\begin{definicio}{Mézga Géza}Tranzitív függ...
-\end{definicio}\begin{definicio}{Mézga Géza}(Triviális függőség) Ha za X,Y attriúbútumhalmazokra igaz, hogy $Y \subseteq X$, akkor az $X \rightarrow Y$ függőséget triviális függőségnek nevezzük, egyébként a függőség nemtriviális.
-\end{definicio}\begin{definicio}{Mézga Géza}Egy R reláció $A \in R$ attribútuma elsődleges, ha A eleme a reláció valamely K kulcsának, egyébként A másodlagos attribútum.
-\end{definicio}\begin{definicio}{Mézga Géza}Egy R Relációs sémának.. felbontás
-\end{definicio}\begin{definicio}{Mézga Géza}Veszteségmentes felbontás....
-\end{definicio}\begin{definicio}{Mézga Géza}Adott az R séma attribútumain étrelmezett függőségek F halmaza. A függőségeknek ez $Z \subset R$ attribútumhalmazra való vetítése a $\phi_z(F)$ függőséghalmaz, amelyre $\phi_z(F) = \lbrace X\rightarrow Y | X\rightarrow Y \in F^+$ és $XY \subseteq Z \rbrace$
-\end{definicio}\begin{definicio}{Mézga Géza}Függőségörző...
+\end{definicio}
+
+\begin{definicio}{Mézga Géza}
+Tranzitív függ...
+\end{definicio}
+
+\begin{definicio}{Mézga Géza}
+(Triviális függőség) Ha za X,Y attriúbútumhalmazokra igaz, hogy $Y \subseteq X$, akkor az $X \rightarrow Y$ függőséget triviális függőségnek nevezzük, egyébként a függőség nemtriviális.
+\end{definicio}
+
+\begin{definicio}{Mézga Géza}
+Egy R reláció $A \in R$ attribútuma elsődleges, ha A eleme a reláció valamely K kulcsának, egyébként A másodlagos attribútum.
+\end{definicio}
+
+\begin{definicio}{Mézga Géza}
+Egy R Relációs sémának.. felbontás
+\end{definicio}
+
+\begin{definicio}{Mézga Géza}
+Veszteségmentes felbontás....
+\end{definicio}
+
+\begin{definicio}{Mézga Géza}
+Adott az R séma attribútumain étrelmezett függőségek F halmaza. A függőségeknek ez $Z \subset R$ attribútumhalmazra való vetítése a $\phi_z(F)$ függőséghalmaz, amelyre $\phi_z(F) = \lbrace X\rightarrow Y | X\rightarrow Y \in F^+$ és $XY \subseteq Z \rbrace$
+\end{definicio}
+
+\begin{definicio}{Mézga Géza}
+Függőségörző...
 \end{definicio}
